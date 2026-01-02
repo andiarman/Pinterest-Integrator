@@ -1,16 +1,16 @@
 {
     "boards": [
         {
-            "name": "Tekstur Kayu Nusantara",
-            "url": "https://id.pinterest.com/ndiarmn/texture/"
+            "name": "Concrete",
+            "url": "https://id.pinterest.com/ndiarmn/texture-material/concrete-texture/"
         },
         {
-            "name": "Motif Batik Indonesia",
-            "url": "https://pinterest.com/username/motif-batik-indonesia"
+            "name": "Wood",
+            "url": "https://id.pinterest.com/ndiarmn/texture-material/wood-texture/"
         },
         {
-            "name": "Material Batu Alam",
-            "url": "https://pinterest.com/username/material-batu-alam"
+            "name": "Steel and Metal",
+            "url": "https://id.pinterest.com/ndiarmn/texture-material/steel-and-metal-texture/"
         }
     ],
     "tag_mappings": {
@@ -58,3 +58,4 @@
     ]
 
 }
+
