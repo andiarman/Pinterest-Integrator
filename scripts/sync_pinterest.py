@@ -216,8 +216,8 @@ class PinterestScraper:
                 board=board_name
             )
             
-            # Auto-generate tags
-            pin.tags = self._generate_tags(title, description)
+            # Get tags from Pinterest's native tags ONLY (no auto-generation)
+            pin.tags = self._get_pinterest_tags(data)
             
             return pin
             
@@ -250,7 +250,8 @@ class PinterestScraper:
                     source_url=board_url,
                     board=board_name
                 )
-                pin.tags = self._generate_tags(alt, "")
+                # No auto-generated tags for fallback - leave empty
+                pin.tags = []
                 pins.append(pin)
         
         return pins[:50]  # Limit to 50 pins
@@ -263,23 +264,40 @@ class PinterestScraper:
             return first_sentence[:50].strip()
         return f"Material dari {board_name}"
 
-    def _generate_tags(self, title: str, description: str) -> list[str]:
-        """Auto-generate tags based on content"""
+    def _get_pinterest_tags(self, data: dict) -> list[str]:
+        """Get tags from Pinterest's native tag data ONLY - no auto-generation"""
         tags = []
-        text = f"{title} {description}".lower()
         
-        for tag, keywords in self.tag_mappings.items():
-            for keyword in keywords:
-                if keyword.lower() in text:
-                    if tag not in tags:
-                        tags.append(tag)
-                    break
+        # Try different Pinterest tag fields
+        # 1. Hashtags from pin
+        hashtags = data.get("hashtags", [])
+        if hashtags:
+            for h in hashtags:
+                tag = h.get("tag", "") if isinstance(h, dict) else str(h)
+                if tag and tag not in tags:
+                    tags.append(tag.lower().replace("#", ""))
         
-        # Add some generic tags from title words
-        title_words = re.findall(r'\b[a-zA-Z]{4,}\b', title.lower())
-        for word in title_words[:2]:
-            if word not in tags and len(tags) < 5:
-                tags.append(word)
+        # 2. Pin join (Pinterest's tag system)
+        pin_join = data.get("pin_join", {})
+        if pin_join:
+            annotations = pin_join.get("visual_annotation", [])
+            for ann in annotations:
+                if isinstance(ann, str) and ann not in tags:
+                    tags.append(ann.lower())
+        
+        # 3. Pinner's custom tags
+        pinner_tags = data.get("pinner_tags", [])
+        if pinner_tags:
+            for tag in pinner_tags:
+                if isinstance(tag, str) and tag.lower() not in tags:
+                    tags.append(tag.lower())
+        
+        # 4. Board section name as tag
+        board_section = data.get("board_section", {})
+        if board_section:
+            section_name = board_section.get("name", "")
+            if section_name and section_name.lower() not in tags:
+                tags.append(section_name.lower())
         
         return tags[:5]  # Max 5 tags
 
