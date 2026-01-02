@@ -167,14 +167,40 @@
             "description": "Granit abu-abu untuk lantai modern",
             "source_url": "https://pinterest.com/pin/example12",
             "board": "Material Batu Alam"
+        },
+        {
+            "id": "pin_804525920977148773",
+            "title": "Auburn Oak 902 | Warm and Inviting Oak Wood Finish",
+            "image_url": "https://i.pinimg.com/originals/9a/95/1c/9a951cc985a6c146cca345fcc4ada756.jpg",
+            "tags": [
+                "kayu",
+                "auburn",
+                "warm"
+            ],
+            "description": "Auburn Oak 902 | Warm and Inviting Oak Wood Finish",
+            "source_url": "https://pinterest.com/pin/804525920977148773",
+            "board": "Tekstur Kayu Nusantara"
+        },
+        {
+            "id": "pin_804525920977148773",
+            "title": "Auburn Oak 902 | Warm and Inviting Oak Wood Finish",
+            "image_url": "https://i.pinimg.com/originals/9a/95/1c/9a951cc985a6c146cca345fcc4ada756.jpg",
+            "tags": [
+                "kayu",
+                "auburn",
+                "warm"
+            ],
+            "description": "Auburn Oak 902 | Warm and Inviting Oak Wood Finish",
+            "source_url": "https://pinterest.com/pin/804525920977148773",
+            "board": "Tekstur Kayu Nusantara"
         }
     ],
     "boards": [
-        "Tekstur Kayu Nusantara",
-        "Motif Batik Indonesia",
         "Material Batu Alam",
+        "Material Industrial",
         "Material Natural",
-        "Material Industrial"
+        "Motif Batik Indonesia",
+        "Tekstur Kayu Nusantara"
     ],
-    "last_sync": "2026-01-03T00:15:00+08:00"
+    "last_sync": "2026-01-02T17:01:06.577675"
 }
