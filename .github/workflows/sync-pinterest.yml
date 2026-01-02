@@ -1,0 +1,55 @@
+name: Sync Pinterest Boards
+
+on:
+  # Run every hour
+  schedule:
+    - cron: '0 * * * *'
+  
+  # Manual trigger
+  workflow_dispatch:
+    inputs:
+      force_sync:
+        description: 'Force sync even if no changes'
+        required: false
+        default: 'false'
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/requirements.txt
+      
+      - name: Run Pinterest sync
+        env:
+          PINTEREST_BOARDS: ${{ secrets.PINTEREST_BOARDS }}
+        run: |
+          python scripts/sync_pinterest.py
+      
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --exit-code data/library.json || echo "changes=true" >> $GITHUB_OUTPUT
+      
+      - name: Commit and push changes
+        if: steps.git-check.outputs.changes == 'true' || github.event.inputs.force_sync == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add data/library.json
+          git commit -m "🔄 Sync Pinterest materials - $(date +'%Y-%m-%d %H:%M')"
+          git push
