@@ -1,9 +1,9 @@
 name: Sync Pinterest Boards
 
 on:
-  # Run every 5 minutes (minimum GitHub allows)
+  # Run every 30 minutes (safe balance: ~1440 runs/month)
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/30 * * * *'
   
   # Manual trigger
   workflow_dispatch:
