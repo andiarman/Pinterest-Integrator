@@ -13,49 +13,10 @@
             "url": "https://id.pinterest.com/ndiarmn/texture-material/steel-and-metal-texture/"
         }
     ],
-    "tag_mappings": {
-        "kayu": [
-            "wood",
-            "timber",
-            "jati",
-            "sonokeling",
-            "mahoni",
-            "oak",
-            "teak"
-        ],
-        "batik": [
-            "batik",
-            "pattern",
-            "motif",
-            "tradisional",
-            "parang",
-            "mega-mendung"
-        ],
-        "batu": [
-            "stone",
-            "rock",
-            "marble",
-            "granite",
-            "andesit",
-            "marmer",
-            "granit"
-        ],
-        "bambu": [
-            "bamboo",
-            "bambu",
-            "anyaman"
-        ],
-        "rotan": [
-            "rattan",
-            "rotan",
-            "wicker"
-        ]
-    },
     "excluded_keywords": [
         "advertisement",
         "sponsored",
         "shop now"
     ]
-
 }
 
