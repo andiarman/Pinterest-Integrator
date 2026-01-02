@@ -1,0 +1,59 @@
+{
+    "boards": [
+        {
+            "name": "Tekstur Kayu Nusantara",
+            "url": "https://pinterest.com/username/tekstur-kayu-nusantara"
+        },
+        {
+            "name": "Motif Batik Indonesia",
+            "url": "https://pinterest.com/username/motif-batik-indonesia"
+        },
+        {
+            "name": "Material Batu Alam",
+            "url": "https://pinterest.com/username/material-batu-alam"
+        }
+    ],
+    "tag_mappings": {
+        "kayu": [
+            "wood",
+            "timber",
+            "jati",
+            "sonokeling",
+            "mahoni",
+            "oak",
+            "teak"
+        ],
+        "batik": [
+            "batik",
+            "pattern",
+            "motif",
+            "tradisional",
+            "parang",
+            "mega-mendung"
+        ],
+        "batu": [
+            "stone",
+            "rock",
+            "marble",
+            "granite",
+            "andesit",
+            "marmer",
+            "granit"
+        ],
+        "bambu": [
+            "bamboo",
+            "bambu",
+            "anyaman"
+        ],
+        "rotan": [
+            "rattan",
+            "rotan",
+            "wicker"
+        ]
+    },
+    "excluded_keywords": [
+        "advertisement",
+        "sponsored",
+        "shop now"
+    ]
+}

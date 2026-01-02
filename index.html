@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Pinterest Material Library untuk SketchUp - Koleksi tekstur dan material dari Pinterest">
+  <title>Pinterest Integrator - Material Library</title>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <div class="logo-icon">📌</div>
+        <span class="logo-text">Pinterest Integrator</span>
+        <span class="logo-badge">SketchUp</span>
+      </div>
+      
+      <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="text" 
+          class="search-input" 
+          id="searchInput"
+          placeholder="Cari material... (contoh: kayu, batik, batu)"
+        >
+      </div>
+      
+      <div class="sync-status">
+        <span class="sync-dot"></span>
+        <span id="syncTime">Terakhir sync: --</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Filters -->
+  <section class="filters-section">
+    <div class="filters-container" id="filtersContainer">
+      <span class="filter-label">Filter:</span>
+      <button class="filter-tag active" data-filter="all">Semua</button>
+      <!-- Dynamic tags will be added here -->
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="stats-bar">
+      <span class="stats-text">Menampilkan <strong id="materialCount">0</strong> material</span>
+      <div class="view-toggle">
+        <button class="view-btn active" id="gridViewBtn" title="Grid View">⊞</button>
+        <button class="view-btn" id="listViewBtn" title="List View">☰</button>
+      </div>
+    </div>
+
+    <div class="materials-grid" id="materialsGrid">
+      <!-- Loading State -->
+      <div class="loading-container" id="loadingState">
+        <div class="loading-spinner"></div>
+        <span class="loading-text">Memuat material dari library...</span>
+      </div>
+    </div>
+  </main>
+
+  <!-- Toast Container -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
